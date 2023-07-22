@@ -6,7 +6,9 @@ import org.springframework.stereotype.Service;
 import ru.ldv236.exam.domain.Question;
 import ru.ldv236.exam.repository.QuestionRepository;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Random;
 
 @Service
@@ -49,5 +51,10 @@ public class JavaQuestionService implements QuestionService {
         int randomIndex = random.nextInt(array.length);
         Object randomQuestion = array[randomIndex];
         return (Question) randomQuestion;
+
+//        List<Question> questions = new ArrayList<>()(questionRepository.getAll());
+//        int randomIndex = random.nextInt(questions.size());
+//        return  questions.get(randomIndex);
+
     }
 }
