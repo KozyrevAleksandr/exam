@@ -37,14 +37,13 @@ public class MathQuestionService implements QuestionService {
 
     @Override
     public Question getRandomQuestion() {
-        //not use because generate math question for "mastermind" task
-        if (false) {
-            Object[] array = questionRepository.getAll().toArray();
-            int randomIndex = random.nextInt(array.length);
-            Object randomQuestion = array[randomIndex];
-            return (Question) randomQuestion;
-        }
-        return generateMathQuestion();
+
+        Object[] array = questionRepository.getAll().toArray();
+        int randomIndex = random.nextInt(array.length);
+        Object randomQuestion = array[randomIndex];
+        return (Question) randomQuestion;
+
+        //return generateMathQuestion();
     }
 
     private Question generateMathQuestion() {

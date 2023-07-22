@@ -1,5 +1,6 @@
 package ru.ldv236.exam.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import ru.ldv236.exam.domain.Question;
@@ -12,10 +13,17 @@ import java.util.Random;
 public class JavaQuestionService implements QuestionService {
 
     QuestionRepository questionRepository;
-    Random random = new Random();
+    Random random;
 
+    @Autowired
     public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
+        random = new Random();
+    }
+
+    public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository questionRepository, Random random) {
+        this.questionRepository = questionRepository;
+        this.random = random;
     }
 
     @Override

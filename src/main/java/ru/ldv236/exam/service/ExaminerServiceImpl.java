@@ -27,15 +27,12 @@ public class ExaminerServiceImpl implements ExaminerService {
     @Override
     public Collection<Question> getQuestions(int amount) {
 
-        //when math questions generating in flow in any count, then we don't need this check
-        if (false) {
-            int javaQuestionsCount = javaQuestionService.getAll().size();
-            int mathQuestionsCount = mathQuestionService.getAll().size();
-            int commonQuestionCount = javaQuestionsCount + mathQuestionsCount;
+        int javaQuestionsCount = javaQuestionService.getAll().size();
+        int mathQuestionsCount = mathQuestionService.getAll().size();
+        int commonQuestionCount = javaQuestionsCount + mathQuestionsCount;
 
-            if (amount > commonQuestionCount) {
-                throw new TooManyQuestionsRequestedException("Not enough questions access");
-            }
+        if (amount > commonQuestionCount) {
+            throw new TooManyQuestionsRequestedException("Not enough questions access");
         }
 
         Set<Question> result = new HashSet<>();

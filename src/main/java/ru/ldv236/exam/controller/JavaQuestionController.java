@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ru.ldv236.exam.domain.Question;
 import ru.ldv236.exam.service.QuestionService;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Collection;
 
 @RestController
@@ -21,7 +22,10 @@ public class JavaQuestionController {
     }
 
     @GetMapping("/add")
-    public Question addQuestion(@RequestParam String question, @RequestParam String answer) {
+//    public Question addQuestion(@RequestParam String question, @RequestParam String answer) {
+    public Question addQuestion(HttpServletRequest httpServletRequest) {
+        String question = httpServletRequest.getParameter("question");
+        String answer = httpServletRequest.getParameter("answer");
         return questionService.add(question, answer);
     }
 
