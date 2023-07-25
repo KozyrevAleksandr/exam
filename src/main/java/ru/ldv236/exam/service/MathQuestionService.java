@@ -5,9 +5,7 @@ import org.springframework.stereotype.Service;
 import ru.ldv236.exam.domain.Question;
 import ru.ldv236.exam.repository.QuestionRepository;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.Random;
 
 @Service

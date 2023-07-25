@@ -17,12 +17,14 @@ public class JavaQuestionService implements QuestionService {
     QuestionRepository questionRepository;
     Random random;
 
+    //конструктор для работы спринга с аннотацией
     @Autowired
     public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
         random = new Random();
     }
 
+    //конструктор для тестов (чтобы мокать рандом)
     public JavaQuestionService(@Qualifier("javaQuestionRepository") QuestionRepository questionRepository, Random random) {
         this.questionRepository = questionRepository;
         this.random = random;
